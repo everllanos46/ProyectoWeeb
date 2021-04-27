@@ -1,0 +1,41 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Docentes</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                  <th>
+                      Identificación
+                  </th>
+                <th>
+                  Nombre
+                </th>
+                <th>
+                  Apellido
+                </th>
+                <th>
+                  Asignatura
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let docente of docentes; index as i ">    
+                       
+                    <td> <a routerLink='/verDocente/{{docente.identificacion}}'   >{{ docente.identificacion }}</a>
+                         </td>
+                    <td>{{ docente.nombre }}</td>
+                    <td>{{docente.apellido }}</td>
+                    <td>{{ docente.asignatura }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>

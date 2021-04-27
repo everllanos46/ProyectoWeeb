@@ -1,0 +1,115 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Datos Docente</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-12 pl-1" >
+                <div class="form-group">
+                  <label for="email">Identificación</label>
+                  <input name="id" id="identificacion" type="text" class="form-control" [(ngModel)]="docente.identificacion">
+                </div>
+              </div>
+              <div class="col-md-12 pl-1" >
+                <div class="form-group">
+                  <label for="email">Correo</label>
+                  <input name="email" id="email" type="email" class="form-control" [(ngModel)]="docente.correo">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Nombre</label>
+                  <input name="nombre" type="text" class="form-control" placeholder="Nombre" [(ngModel)]="docente.nombre" >
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Apellido</label>
+                  <input name="apellido" type="text" class="form-control" placeholder="Apellido" [(ngModel)]="docente.apellido">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Dirección</label>
+                  <input name="direccion" type="text" class="form-control" placeholder="Home Address" placeholder="Dirección" [(ngModel)]="docente.direccion">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>Ciudad</label>
+                  <input name="ciudad" type="text" class="form-control" placeholder="City" [(ngModel)]="docente.ciudad">
+                </div>
+              </div>
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <label>País</label>
+                  <input name="pais" type="text" class="form-control" placeholder="Country" [(ngModel)]="docente.pais">
+                </div>
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>About Me</label>
+                  <input name="about" type="text" class="form-control" placeholder="Country" [(ngModel)]="docente.sobreDocente">  
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-danger" (click)="guardar()">Registrar</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-4">
+      <div class="card card-user">
+        <div class="image">
+          <img src="../assets/img/bg5.jpg" alt="...">
+        </div>
+        <div class="card-body">
+          <div class="author">
+            <a href="#">
+              <img class="avatar border-gray" src="../assets/img/Sin título.png" alt="...">
+              <h5 class="title">Nombre Apellido</h5>
+            </a>
+            <p class="description">
+              prueba
+            </p>
+          </div>
+          <p class="description text-center">
+            "La programación es mi pasión"
+          </p>
+        </div>
+        <hr>
+        <div class="button-container">
+          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+            <i class="fab fa-facebook-f"></i>
+          </button>
+          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+            <i class="fab fa-twitter"></i>
+          </button>
+          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+            <i class="fab fa-google-plus-g"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  
+</div>
+

@@ -1,0 +1,140 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card" style="margin-left: 25%;">
+        <div class="card-header">
+          <h5 class="title">Solicitud</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <label for="">Código Solicitud</label>
+            <div>
+              <input name="codigoSolicitud" id="codigoSolicitud" type="text" class="form-control">
+            </div>
+            <br>
+            <label for="">Solicitante</label>
+            <div>
+              <input name="solicitante" id="solicitante" type="text" class="form-control">
+            </div>
+            <br>
+            <button class="btn btn-primary" (click)="bandera()">Identificación</button>
+            <div *ngIf="!form1" aria-disabled="true">
+              <label for="">Código Asignatura</label>
+              <div>
+                <input name="codigo" id="codigo" type="text" class="form-control" [(ngModel)]="plan.asignatura.codigo">
+              </div>
+              <label for="">Nombre Asignatura</label>
+              <div>
+                <input name="nombreAsignatura" id="nombreAsignatura" type="text" class="form-control"
+                  [(ngModel)]="plan.asignatura.nombreAsignatura">
+              </div>
+              <label for="">Programa Académico</label>
+              <div>
+                <input name="programaAcademico" id="programaAcademico" type="text" class="form-control"
+                  [(ngModel)]="plan.asignatura.programaAcademico">
+              </div>
+              <label for="">Créditos</label>
+              <input name="creditos" id="creditos" type="number" class="form-control"
+                [(ngModel)]="plan.asignatura.creditos">
+              <div>
+                <button class="btn btn-primary" (click)="bandera3()">Horas de trabajo semestral
+                  del estudiante</button>
+                <div *ngIf="!form3">
+                  <label for="">HDD</label>
+                  <input name="hdd" id="hdd" type="number" class="form-control" [(ngModel)]="plan.asignatura.hdd">
+                  <label for="">HTP</label>
+                  <input name="htp" id="htp" type="number" class="form-control" [(ngModel)]="plan.asignatura.htp">
+                  <label for="">HTI</label>
+                  <input name="hti" id="hti" type="number" class="form-control" [(ngModel)]="plan.asignatura.hti">
+                  <label for="">HTT</label>
+                  <input name="htt" id="htt" type="number" class="form-control" [(ngModel)]="plan.asignatura.htt">
+                </div>
+                <br>
+              </div>
+              <label for="">Pre-requisitos</label>
+              <input name="prerequisitos" id="prerequisitos" type="text" class="form-control"
+                [(ngModel)]="plan.asignatura.prerequisitos">
+              <label for="">Co-requisitos</label>
+              <input name="corequisitos" id="corequisitos" type="text" class="form-control"
+                [(ngModel)]="plan.asignatura.corequisitos">
+              <label for="">Departamento Oferente</label>
+              <input name="departamento" id="departamento" type="text" class="form-control"
+                [(ngModel)]="plan.asignatura.departamento">
+              <br>
+              <div>
+
+                <label for="">Tipo Asignatura</label>
+                <select class="form-control" [(ngModel)]="plan.asignatura.tipoAsignatura" name="tipoAsignatura"
+                  id="tipoAsignatura">
+                  <option value="teoria">Teoría</option>
+                  <option value="teoriaPractica">Teoría práctica</option>
+                  <option value="practica">Práctica</option>
+                </select>
+              </div>
+              <div>
+                <button class="btn btn-primary" (click)="bandera4()">Naturaleza Asignatura</button>
+                <div *ngIf="!form4">
+                  <br>
+                  <div>
+                    <label for="">Habilitable</label>
+                    <select class="form-control" [(ngModel)]="plan.asignatura.habilitable" name="habilitable"
+                      id="habilitable">
+                      <option value="si">Si</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <br>
+                  <div>
+                    <label for="">Validable </label>
+                    <select class="form-control" [(ngModel)]="plan.asignatura.validable" name="validable"
+                      id="validable">
+                      <option value="si">Si</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <br>
+                  <div>
+                    <div>
+                      <label for="">Homologable</label>
+                      <select class="form-control" [(ngModel)]="plan.asignatura.homologable" name="homologable"
+                        id="homologable">
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+              </div>
+
+
+            </div>
+
+
+            <br>
+            <div>
+              <button class="btn btn-primary" (click)="bandera2()">Form 2</button>
+            </div>
+            <div *ngIf="!form2">
+              <label for="">Código plan</label>
+              <input name="codigoplan" id="codigoplan" type="text" class="form-control" [(ngModel)]="plan.codigoPlan">
+              <label for="">Descripción</label>
+              <textarea rows="4" cols="80" class="form-control" name="descripcion" id="descripcion" type="text"
+                [(ngModel)]="plan.descripcion"></textarea>
+              <label for="">Objetivo General</label>
+              <textarea rows="4" cols="80" name="objetivogral" id="objetivogral" type="text" class="form-control"
+                [(ngModel)]="plan.objetivoGeneral"></textarea>
+              <label for="">Objetivo Específico</label>
+              <textarea rows="4" cols="80" name="objetivosespecificos" id="objetivosespecificos" type="text"
+                class="form-control" [(ngModel)]="plan.objetivosEspecificos"></textarea>
+              <label for="">Estrategias</label>
+              <textarea rows="4" cols="80" name="estrategias" id="estrategias" type="text" class="form-control"
+                [(ngModel)]="plan.estrategias"></textarea>
+            </div>
+
+            <button type="button" class="btn btn-danger">Registrar Plan</button>
+          </form>
+        </div>
+      </div>

@@ -1,0 +1,15 @@
+
+  
+  .notification:hover {
+    background: red;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: 19px;
+    right: 130px;
+    padding: 3px 5px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+  }

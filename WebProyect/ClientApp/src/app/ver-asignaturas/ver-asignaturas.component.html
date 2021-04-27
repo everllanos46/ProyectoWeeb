@@ -1,0 +1,63 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card" style="margin-left: 20%;">
+        <div class="card-header">
+          <h5 class="title">Asignatura</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-12 pl-1" style="margin-left: 10px;">
+                <div class="form-group">
+                  <label for="codigoAsignatura">Código</label>
+                  <input name="codigoAsignatura" id="codigoAsignatura" type="text" class="form-control" [(ngModel)]="asignatura.codigo">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 pr-1">
+                <div class="form-group">
+                  <label for="nombreAsignatura">Nombre</label>
+                  <input name="nombreAsignatura" id="nombreAsignatura" type="text" class="form-control"  [(ngModel)]="asignatura.nombreAsignatura " >
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="creditosAsignatura">Créditos</label>
+                  <input  name="creditosAsignatura" id="creditosAsignatura" type="text" class="form-control" [(ngModel)]="asignatura.creditos " >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 pr-1">
+                <div class="form-group">
+                  <label>Horas</label>
+                  <input type="text" class="form-control" value="6">
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Docente</label>
+                  <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description"
+                    value="Mike">Amilkar.</textarea>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center;">
+              <button type="button" class="btn btn-danger">Eliminar Asignatura</button>
+              <button type="button" class="btn btn-danger" (click)="modify()">Actualizar Asignatura</button>
+              <button type="button" class="btn btn-danger" routerLink='/verPlanAsignatura/{{planAsignatura.codigoPlan}}'
+                >Ver Plan de Asignatura</button>
+            </div>
+          </form>
+        </div>
+      </div>
