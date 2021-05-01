@@ -8,8 +8,9 @@ namespace Entity
     {
         [Key] [Column(TypeName="varchar(10)")]
         public String CodigoSolicitud { get; set; }
+        public PlanSolicitud PlanSolicitud{get; set;}
         public String Solicitante{get; set;}
         public String Estado{get; set;}
-        public PlanSolicitud PlanSolicitud{get; set;}
+        
     }
 }

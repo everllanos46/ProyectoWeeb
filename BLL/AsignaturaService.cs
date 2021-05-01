@@ -34,7 +34,7 @@ namespace BLL
                 _AsignaturaContext.SaveChanges();
             }catch(Exception e){
                 editarAsignaturaResponse.Error=true;
-                editarAsignaturaResponse.Mensaje="Hubo un error al momento de editar";
+                editarAsignaturaResponse.Mensaje=$"Hubo un error al momento de editar, {e.Message}";
             }
             return editarAsignaturaResponse;
         }
@@ -56,11 +56,6 @@ namespace BLL
             }
             return consultarAsignaturasResponse;
         }
-
-
-
-
-
 
 
          public class EditarAsignaturaResponse{

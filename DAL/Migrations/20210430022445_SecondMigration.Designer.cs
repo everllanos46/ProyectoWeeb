@@ -3,14 +3,16 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(AsignaturaContext))]
-    partial class AsignaturaContextModelSnapshot : ModelSnapshot
+    [Migration("20210430022445_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,14 +138,14 @@ namespace DAL.Migrations
                     b.Property<string>("CodigoPlan")
                         .HasColumnType("varchar(10)");
 
+                    b.Property<string>("AsignaturaCodigo")
+                        .HasColumnType("varchar(10)");
+
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Estrategias")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IdAsignatura")
-                        .HasColumnType("varchar(10)");
 
                     b.Property<string>("ObjetivoGeneral")
                         .HasColumnType("nvarchar(max)");
@@ -153,7 +155,7 @@ namespace DAL.Migrations
 
                     b.HasKey("CodigoPlan");
 
-                    b.HasIndex("IdAsignatura");
+                    b.HasIndex("AsignaturaCodigo");
 
                     b.ToTable("PlanSolicitud");
                 });
@@ -190,9 +192,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entity.PlanSolicitud", b =>
                 {
-                    b.HasOne("Entity.Asignatura", null)
+                    b.HasOne("Entity.Asignatura", "Asignatura")
                         .WithMany()
-                        .HasForeignKey("IdAsignatura");
+                        .HasForeignKey("AsignaturaCodigo");
+
+                    b.Navigation("Asignatura");
                 });
 
             modelBuilder.Entity("Entity.Solicitud", b =>

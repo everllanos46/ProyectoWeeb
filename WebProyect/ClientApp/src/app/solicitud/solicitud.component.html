@@ -11,12 +11,12 @@
           <form>
             <label for="">Código Solicitud</label>
             <div>
-              <input name="codigoSolicitud" id="codigoSolicitud" type="text" class="form-control">
+              <input name="codigoSolicitud" id="codigoSolicitud" type="text" class="form-control" [(ngModel)]="solicitud.codigoSolicitud">
             </div>
             <br>
             <label for="">Solicitante</label>
             <div>
-              <input name="solicitante" id="solicitante" type="text" class="form-control">
+              <input name="solicitante" id="solicitante" type="text" class="form-control" [(ngModel)]="solicitud.solicitante">
             </div>
             <br>
             <button class="btn btn-primary" (click)="bandera()">Identificación</button>
@@ -134,7 +134,7 @@
                 [(ngModel)]="plan.estrategias"></textarea>
             </div>
 
-            <button type="button" class="btn btn-danger">Registrar Plan</button>
+            <button type="button" class="btn btn-danger" (click)="guardar()">Hacer Solicitud</button>
           </form>
         </div>
       </div>

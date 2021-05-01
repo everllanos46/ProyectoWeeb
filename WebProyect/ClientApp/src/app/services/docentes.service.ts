@@ -25,7 +25,6 @@ export class DocentesService {
     return this.http.post<Docente>(ruta+"api/Docente",docente).pipe(tap(
       _=>this.handleErrorService.log("Datos Registrados")
     ), catchError(this.handleErrorService.handleError<Docente>("Docente Registrado",null)) )
-
   }
 
   search(identificacion: String){

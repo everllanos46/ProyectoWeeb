@@ -24,6 +24,7 @@ import { ModalComponent } from './@base/modal/modal.component';
 import { VerDocenteComponent } from './ver-docente/ver-docente.component';
 import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.component';
+import { VerSolicitudComponent } from './ver-solicitud/ver-solicitud.component';
 
 
 
@@ -49,6 +50,7 @@ import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.compo
     VerDocenteComponent,
     AlertModalComponent,
     VerSolicitudesComponent,
+    VerSolicitudComponent,
 
 
   ],

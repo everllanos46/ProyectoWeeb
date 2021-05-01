@@ -5,27 +5,30 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Docentes</h4>
+          <h4 class="card-title"> Solicitudes</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                   <th>
-                      Identificación
+                      Codigo
                   </th>
-                <th>
-                  Nombre
-                </th>
-                <th>
-                  Apellido
-                </th>
                 <th>
                   Asignatura
                 </th>
+                <th>
+                  Solicitante
+                </th>
               </thead>
               <tbody>
-                
+                <tr *ngFor="let solicitud of solicitudes; index as i ">
+                  <td> 
+                    <a >{{solicitud.codigoSolicitud}}</a>
+                  </td>
+                  <td>{{solicitud.planSolicitud.asignatura.nombreAsignatura}}</td>
+                  <td>{{solicitud.solicitante }}</td>
+                </tr>
               </tbody>
             </table>
           </div>
