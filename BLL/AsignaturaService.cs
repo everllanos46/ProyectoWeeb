@@ -10,10 +10,14 @@ namespace BLL
     public class AsignaturaService
     {
         private AsignaturaContext _AsignaturaContext;
+        private PlanAsignaturaService planAsignaturaService;
+        private SolicitudService solicitudService;
 
         public AsignaturaService(AsignaturaContext asignaturaContext)
         {
             _AsignaturaContext = asignaturaContext;
+            planAsignaturaService = new PlanAsignaturaService(asignaturaContext);
+            solicitudService = new SolicitudService(asignaturaContext);
         }
 
         public EditarAsignaturaResponse EditarAsignatura(Asignatura asignatura){
@@ -28,6 +32,9 @@ namespace BLL
                 resul.Habilitable=asignatura.Habilitable;
                 resul.Homologable=asignatura.Homologable;
                 resul.HDD=asignatura.HDD;
+                resul.HTI=asignatura.HTI;
+                resul.HTP=asignatura.HTP;
+                resul.HTT=asignatura.HTT;
                 resul.NombreAsignatura=asignatura.NombreAsignatura;
                 resul.TipoAsignatura=asignatura.TipoAsignatura;
                 _AsignaturaContext.Asignaturas.Update(resul);
@@ -57,8 +64,31 @@ namespace BLL
             return consultarAsignaturasResponse;
         }
 
+        public EliminarAsignaturaResponse EliminarAsignatura(string codigo){
+            EliminarAsignaturaResponse eliminarAsignaturaResponse = new EliminarAsignaturaResponse();
+            try{
+                eliminarAsignaturaResponse.Error=false;
+                eliminarAsignaturaResponse.Mensaje="Docente eliminado correctamente";
+                var resul= _AsignaturaContext.Asignaturas.Find(codigo);
+                planAsignaturaService.EliminarPlan(codigo);
+                solicitudService.EliminarSolicitud(codigo);
+                _AsignaturaContext.Remove(resul);
+                _AsignaturaContext.SaveChanges();
+            }catch(Exception e){
+                eliminarAsignaturaResponse.Error=true;
+                eliminarAsignaturaResponse.Mensaje=$"Hubo un error al momento de eliminar a la asignatura, {e.Message}";
+            }
+
+            return eliminarAsignaturaResponse;
+        }
+
 
          public class EditarAsignaturaResponse{
+            public String Mensaje { get; set; }
+            public bool Error { get; set; }
+        }
+
+        public class EliminarAsignaturaResponse{
             public String Mensaje { get; set; }
             public bool Error { get; set; }
         }

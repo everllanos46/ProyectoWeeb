@@ -49,6 +49,7 @@ export class RegistroAsignaturaComponent implements OnInit {
   }
   bandera3(){
     this.form3=!this.form3;
+    
   }
   bandera4(){
     this.form4=!this.form4;

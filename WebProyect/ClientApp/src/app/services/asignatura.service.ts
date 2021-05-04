@@ -31,4 +31,10 @@ export class AsignaturaService {
         tap(()=>console.log("Modificado correctamente"))
       )
     }
+
+    delete(codigo: String){
+      return this.http.delete(ruta+"api/Asignatura"+"/"+codigo).pipe(
+        tap(()=>console.log("Eliminado correctamente"))
+      )
+    }
 }

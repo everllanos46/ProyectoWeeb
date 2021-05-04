@@ -8,32 +8,44 @@
           <h5 class="title">Datos Docente</h5>
         </div>
         <div class="card-body">
-          <form>
+         <form  name="form" (ngSubmit)="f.form.valid && guardar()" #f="ngForm" novalidate autocomplete="off">
             <div class="row">
               <div class="col-md-12 pl-1" >
                 <div class="form-group">
                   <label for="email">Identificación</label>
-                  <input name="id" id="identificacion" type="text" class="form-control" [(ngModel)]="docente.identificacion">
+                  <input name="id" #id="ngModel"  type="text" class="form-control" [(ngModel)]="docente.identificacion" [ngClass]="{ 'is-invalid': id.touched && id.invalid }" required />
+                  <div *ngIf="id.touched && id.invalid" class="invalid-feedback">
+                    <div *ngIf="id.errors.required">La identificacion es requerida</div>
+                </div>
                 </div>
               </div>
               <div class="col-md-12 pl-1" >
                 <div class="form-group">
                   <label for="email">Correo</label>
-                  <input name="email" id="email" type="email" class="form-control" [(ngModel)]="docente.correo">
+                  <input name="email" #email="ngModel" type="email" class="form-control" [(ngModel)]="docente.correo" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" required >
+                  <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors.required">El correo es requerido</div>
+                </div>
                 </div>
               </div>
-            </div>
+            </div>w
             <div class="row">
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Nombre</label>
-                  <input name="nombre" type="text" class="form-control" placeholder="Nombre" [(ngModel)]="docente.nombre" >
+                  <input name="nombre" #nombre="ngModel" type="text" class="form-control" placeholder="Nombre" [(ngModel)]="docente.nombre" [ngClass]="{ 'is-invalid': nombre.touched && nombre.invalid }" required >
+                  <div *ngIf="nombre.touched && nombre.invalid" class="invalid-feedback">
+                    <div *ngIf="nombre.errors.required">El nombre es requerido</div>
+                </div>
                 </div>
               </div>
               <div class="col-md-6 pl-1">
                 <div class="form-group">
                   <label>Apellido</label>
-                  <input name="apellido" type="text" class="form-control" placeholder="Apellido" [(ngModel)]="docente.apellido">
+                  <input name="apellido" #apellido="ngModel" type="text" class="form-control" placeholder="Apellido" [(ngModel)]="docente.apellido" [ngClass]="{ 'is-invalid': apellido.touched && apellido.invalid }" required>
+                  <div *ngIf="apellido.touched && apellido.invalid" class="invalid-feedback">
+                    <div *ngIf="apellido.errors.required">El apellido es requerido</div>
+                </div>
                 </div>
               </div>
             </div>
@@ -41,7 +53,10 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Dirección</label>
-                  <input name="direccion" type="text" class="form-control" placeholder="Home Address" placeholder="Dirección" [(ngModel)]="docente.direccion">
+                  <input  type="text"  class="form-control" name="direccion" #direccion="ngModel" [(ngModel)]="docente.direccion" placeholder="Home Address" placeholder="Dirección" [ngClass]="{ 'is-invalid': direccion.touched && direccion.invalid }" required>
+                  <div *ngIf="direccion.touched && direccion.invalid" class="invalid-feedback">
+                    <div *ngIf="direccion.errors.required">La dirección es requerida</div>
+                </div>
                 </div>
               </div>
             </div>
@@ -49,13 +64,19 @@
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label>Ciudad</label>
-                  <input name="ciudad" type="text" class="form-control" placeholder="City" [(ngModel)]="docente.ciudad">
+                  <input name="ciudad" #ciudad="ngModel" type="text" class="form-control" placeholder="City" [(ngModel)]="docente.ciudad" [ngClass]="{ 'is-invalid': ciudad.touched && ciudad.invalid }" required>
+                  <div *ngIf="ciudad.touched && ciudad.invalid" class="invalid-feedback">
+                    <div *ngIf="ciudad.errors.required">La ciduad es requerida</div>
+                </div>
                 </div>
               </div>
               <div class="col-md-4 px-1">
                 <div class="form-group">
                   <label>País</label>
-                  <input name="pais" type="text" class="form-control" placeholder="Country" [(ngModel)]="docente.pais">
+                  <input name="pais" #pais="ngModel" type="text" class="form-control" placeholder="Country" [(ngModel)]="docente.pais" [ngClass]="{ 'is-invalid': pais.touched && pais.invalid }" required>
+                  <div *ngIf="pais.touched && pais.invalid" class="invalid-feedback">
+                    <div *ngIf="pais.errors.required">El país es requerido</div>
+                </div>
                 </div>
               </div>
               
@@ -64,11 +85,14 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label>About Me</label>
-                  <input name="about" type="text" class="form-control" placeholder="Country" [(ngModel)]="docente.sobreDocente">  
+                  <input name="about" #about="ngModel" type="text" class="form-control" placeholder="Country" [(ngModel)]="docente.sobreDocente" [ngClass]="{ 'is-invalid': pais.touched && pais.invalid }" required>  
+                  <div *ngIf="about.touched && about.invalid" class="invalid-feedback">
+                    <div *ngIf="about.errors.required">El about es requerido</div>
+                </div>
                 </div>
               </div>
             </div>
-            <button type="button" class="btn btn-danger" (click)="guardar()">Registrar</button>
+            <button type="button" class="btn btn-danger" (click)="guardar()" [disabled]="!f.form.valid">Registrar</button>
           </form>
         </div>
       </div>

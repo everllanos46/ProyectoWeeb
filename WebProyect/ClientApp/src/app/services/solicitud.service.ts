@@ -5,6 +5,7 @@ import { HandleHttpErrorService } from '../@base/handle-http-error.service';
 import { Solicitud } from '../models/solicitud';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 const ruta = environment.ruta;
 
@@ -29,4 +30,21 @@ export class SolicitudService {
       tap(()=>console.log("Consultado correctamente"))
     )
   }
+
+  search(codigo: String){
+    return this.http.get<Solicitud>(ruta+"api/Solicitud/"+codigo).pipe(
+      tap(()=>console.log("Buscado correctamente"))
+    )
+  }
+
+  modify(solicitud: Solicitud){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this.http.put(ruta+"api/Solicitud"+"/solicitud", solicitud, httpOptions).pipe(
+      tap(()=>console.log("Modificado correctamente"))
+    )
+  }
+
+
 }

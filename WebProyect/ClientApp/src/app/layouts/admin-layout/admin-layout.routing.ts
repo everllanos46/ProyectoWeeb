@@ -17,6 +17,7 @@ import {RegistrarDocenteComponent} from '../../registrar-docente/registrar-docen
 import {RegistroAsignaturaComponent} from '../../registro-asignatura/registro-asignatura.component';
 import {VerDocenteComponent} from '../../ver-docente/ver-docente.component';
 import {VerSolicitudesComponent} from '../../ver-solicitudes/ver-solicitudes.component';
+import {VerSolicitudComponent} from '../../ver-solicitud/ver-solicitud.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -35,5 +36,6 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'registrar',     component: RegistrarDocenteComponent},
     {path: 'registrarAsignatura', component:  RegistroAsignaturaComponent},
     {path: 'verDocente/:id', component:  VerDocenteComponent},
-    {path: 'verSolicitud', component:  VerSolicitudesComponent},
+    {path: 'verSolicitudes', component:  VerSolicitudesComponent},
+    {path: 'verSolicitud/:idSolicitud', component:  VerSolicitudComponent}
 ];

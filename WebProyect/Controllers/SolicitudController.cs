@@ -50,6 +50,35 @@ namespace WebProyect.Controllers
             return Ok(Response.Solicitudes.Select(s=> new SolicitudViewModel(s)));
         }
 
+        [HttpGet("{codigo}")]
+        public ActionResult<SolicitudViewModel> BuscarSolicitud(string codigo){
+            var Response = _solicitudService.ConsultarSolicitudes();
+            if(Response.Error){
+                 ModelState.AddModelError("Error al buscar a la solicitud", Response.Mensaje);
+                var detalleProblemas = new ValidationProblemDetails(ModelState);
+                detalleProblemas.Status=StatusCodes.Status404NotFound;
+                return BadRequest(detalleProblemas);
+            }
+            var solicitud = Response.Solicitudes.Find(s=>s.CodigoSolicitud.Equals(codigo));
+            return Ok(solicitud);
+        }
+
+        [HttpPut("solicitud")]
+         public ActionResult<SolicitudViewModel> CambiarEstado(SolicitudViewModel solicitudViewModel){
+            Solicitud solicitud = Mapear(solicitudViewModel);
+            var Response = _solicitudService.ActualizarSolicitud(solicitud);
+            if(Response.Error){
+                ModelState.AddModelError("Error al modificar al docente", Response.Mensaje);
+                var detalleProblemas = new ValidationProblemDetails(ModelState);
+                detalleProblemas.Status=StatusCodes.Status500InternalServerError;
+
+                return BadRequest(detalleProblemas);
+            }
+            return Ok(Response);
+        }
+
+        
+
         private Solicitud Mapear(SolicitudInputModel solicitudInputModel){
             var solicitud = new Solicitud{
                 CodigoSolicitud=solicitudInputModel.CodigoSolicitud,

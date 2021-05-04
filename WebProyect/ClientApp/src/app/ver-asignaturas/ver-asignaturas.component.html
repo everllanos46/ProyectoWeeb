@@ -8,12 +8,14 @@
           <h5 class="title">Asignatura</h5>
         </div>
         <div class="card-body">
-          <form>
+          <form (ngSubmit)="f.form.valid && modify()" #f="ngForm" novalidate autocomplete="off">
             <div class="row">
               <div class="col-md-12 pl-1" style="margin-left: 10px;">
                 <div class="form-group">
                   <label for="codigoAsignatura">Código</label>
-                  <input name="codigoAsignatura" id="codigoAsignatura" type="text" class="form-control" [(ngModel)]="asignatura.codigo">
+                  <input name="codigoAsignatura" #codigoAsignatura="ngModel" type="text" disabled class="form-control"
+                    [(ngModel)]="asignatura.codigo"
+                    [ngClass]="{ 'is-invalid': codigoAsignatura.touched && codigoAsignatura.invalid }" required>
                 </div>
               </div>
             </div>
@@ -21,42 +23,128 @@
               <div class="col-md-12 pr-1">
                 <div class="form-group">
                   <label for="nombreAsignatura">Nombre</label>
-                  <input name="nombreAsignatura" id="nombreAsignatura" type="text" class="form-control"  [(ngModel)]="asignatura.nombreAsignatura " >
+                  <input name="nombreAsignatura" #nombreAsignatura="ngModel" type="text" class="form-control"
+                    [(ngModel)]="asignatura.nombreAsignatura "
+                    [ngClass]="{ 'is-invalid': nombreAsignatura.touched && nombreAsignatura.invalid }" required>
                 </div>
               </div>
 
             </div>
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 pr-1">
                 <div class="form-group">
                   <label for="creditosAsignatura">Créditos</label>
-                  <input  name="creditosAsignatura" id="creditosAsignatura" type="text" class="form-control" [(ngModel)]="asignatura.creditos " >
+                  <input name="creditosAsignatura" #creditosAsignatura="ngModel" type="number" class="form-control"
+                    [(ngModel)]="asignatura.creditos "
+                    [ngClass]="{ 'is-invalid': creditosAsignatura.touched && creditosAsignatura.invalid }" required>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 pr-1">
                 <div class="form-group">
-                  <label>Horas</label>
-                  <input type="text" class="form-control" value="6">
+                  <label for="">Programa Académico</label>
+                  <div>
+                    <input name="programa" #programa="ngModel" type="text" class="form-control"
+                      [(ngModel)]="asignatura.programaAcademico"
+                      [ngClass]="{ 'is-invalid': programa.touched && programa.invalid }" required>
+                  </div>
                 </div>
+              </div>
+            </div>
+            <div>
+              <label for="">HDD</label>
+              <input name="hdd" #hdd="ngModel" type="number" style="height: 40px; width: 215px;" class="form-control"
+                [(ngModel)]="asignatura.hdd" [ngClass]="{ 'is-invalid': hdd.touched && hdd.invalid }" required>
+              <div style="margin-left: 220px; margin-top: -66px;">
+                <label for="">HTP</label>
+                <input name="htp" #htp="ngModel" style="margin-top: 20px;" type="number" class="form-control"
+                  style="height: 40px; width: 215px;" [(ngModel)]="asignatura.htp"
+                  [ngClass]="{ 'is-invalid': htp.touched && htp.invalid }" required>
+              </div>
+              <div style="margin-left: 445px; margin-top: -66px;">
+                <label for="">HTI</label>
+                <input name="hti" #hti="ngModel" type="number" style="height: 40px; width: 215px;" class="form-control"
+                  [(ngModel)]="asignatura.hti" [ngClass]="{ 'is-invalid': hti.touched && hti.invalid }" required>
+              </div>
+
+              <div style="margin-left: 665px; margin-top: -66px;">
+                <label for="">HTT</label>
+                <input name="htt" #htt="ngModel" type="number" style="height: 40px; width: 215px;" class="form-control"
+                  [(ngModel)]="asignatura.htt" [ngClass]="{ 'is-invalid': htt.touched && htt.invalid }" required>
+              </div>
+
+              <br>
+            </div>
+
+            <div style="margin-left: 20px; margin-top: -10px;">
+              <div style="margin-left: 20;">
+                <label for="">Pre-requisitos</label>
+                <input name="prerequisitos" #prerequisitos="ngModel" style="height: 40px; width: 265px;" type="text"
+                  class="form-control" [(ngModel)]="asignatura.prerequisitos">
+              </div>
+
+              <div style="margin-left: 280px; margin-top: -66px;">
+                <label for="">Co-requisitos</label>
+                <input name="corequisitos" #corequisitos="ngModel" style="height: 40px; width: 265px;" type="text"
+                  class="form-control" [(ngModel)]="asignatura.corequisitos">
+              </div>
+              <div style="margin-left: 560px; margin-top: -66px;">
+                <label for="">Departamento Oferente</label>
+                <input name="departamento" #departamento="ngModel" style="height: 40px; width: 265px;" type="text"
+                  class="form-control" [(ngModel)]="asignatura.departamento"
+                  [ngClass]="{ 'is-invalid': departamento.touched && departamento.invalid }" required>
               </div>
 
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Docente</label>
-                  <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description"
-                    value="Mike">Amilkar.</textarea>
-                </div>
-              </div>
+            <div>
+              <label for="">Tipo Asignatura</label>
+              <select class="form-control" style="height: 40px; width: 265px;" [(ngModel)]="asignatura.tipoAsignatura"
+                name="tipoAsignatura" id="tipoAsignatura">
+                <option value="teoria">Teoría</option>
+                <option value="teoriaPractica">Teoría práctica</option>
+                <option value="practica">Práctica</option>
+              </select>
             </div>
+
+            <div style="margin-left: 280px; margin-top: -65px;">
+              <label for="">Habilitable</label>
+              <select class="form-control" [(ngModel)]="asignatura.habilitable" name="habilitable"
+                style="height: 40px; width: 265px;" #habilitable="ngModel"
+                [ngClass]="{ 'is-invalid': habilitable.touched && habilitable.invalid }" required>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+
+            <div style="margin-left: 550px; margin-top: -65px;">
+              <label for="">Validable </label>
+              <select class="form-control" [(ngModel)]="asignatura.validable" name="validable"
+                style="height: 40px; width: 265px;" #validable="ngModel"
+                [ngClass]="{ 'is-invalid': validable.touched && validable.invalid }" required>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+
+            <div style="margin-left: 280px;">
+              <label for="">Homologable</label>
+              <select class="form-control" [(ngModel)]="asignatura.homologable" name="homologable"
+                style="height: 40px; width: 265px;" #homologable="ngModel"
+                [ngClass]="{ 'is-invalid': homologable.touched && homologable.invalid }" required>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+
+
+
             <div style="text-align: center;">
-              <button type="button" class="btn btn-danger">Eliminar Asignatura</button>
+              <button type="button" class="btn btn-danger" (click)="delete(asignatura.codigo)">Eliminar
+                Asignatura</button>
               <button type="button" class="btn btn-danger" (click)="modify()">Actualizar Asignatura</button>
-              <button type="button" class="btn btn-danger" routerLink='/verPlanAsignatura/{{planAsignatura.codigoPlan}}'
-                >Ver Plan de Asignatura</button>
+              <button type="button" class="btn btn-danger"
+                routerLink='/verPlanAsignatura/{{planAsignatura.codigoPlan}}'>Ver Plan de Asignatura</button>
             </div>
           </form>
         </div>

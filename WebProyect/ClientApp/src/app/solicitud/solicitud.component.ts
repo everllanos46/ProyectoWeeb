@@ -6,6 +6,8 @@ import { Solicitud } from '../models/solicitud';
 import { PlanasignaturaService } from '../services/planasignatura.service';
 import { SolicitudService } from '../services/solicitud.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder } from '@angular/forms';
+
 
 
 
@@ -23,7 +25,9 @@ export class SolicitudComponent implements OnInit {
   planAsignatura : PlanAsignatura = new PlanAsignatura();
   plan: PlanAsignatura = new PlanAsignatura();
   solicitud : Solicitud = new Solicitud();
-  constructor(private routeActive: ActivatedRoute, private planAsignaturaService:PlanasignaturaService, private router: Router, private solicitudService : SolicitudService, private modalService: NgbModal ) { }
+  
+  constructor(private routeActive: ActivatedRoute, private planAsignaturaService:PlanasignaturaService, private router: Router, private solicitudService : SolicitudService, private modalService: NgbModal 
+    ) { }
 
   ngOnInit(){
     const id=this.routeActive.snapshot.params.codigoPlan;
@@ -36,6 +40,8 @@ export class SolicitudComponent implements OnInit {
       }
     })
   }
+
+ 
 
   guardar(){
     this.solicitud.planSolicitud=this.plan;

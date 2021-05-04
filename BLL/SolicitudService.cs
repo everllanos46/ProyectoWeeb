@@ -10,10 +10,12 @@ namespace BLL
     public class SolicitudService
     {
          private AsignaturaContext _AsignaturaContext;
+         PlanAsignaturaService planAsignaturaService;
 
         public SolicitudService(AsignaturaContext asignaturaContext)
         {
             _AsignaturaContext = asignaturaContext;
+            planAsignaturaService = new PlanAsignaturaService(asignaturaContext);
         }
 
         public HacerSolicitudResponse HacerSolicitud(Solicitud solicitud){
@@ -30,6 +32,25 @@ namespace BLL
             }catch(Exception e){
                  return new HacerSolicitudResponse($"Error aplicación: {e.Message}", "ERROR");
             }
+        }
+
+        public ActualizarSolicitudResponse ActualizarSolicitud(Solicitud solicitud){
+            ActualizarSolicitudResponse actualizarSolicitudResponse = new ActualizarSolicitudResponse();
+            try{
+                actualizarSolicitudResponse.Error=false;
+                actualizarSolicitudResponse.Mensaje="Solicitud editada correctamente";
+                var resul=_AsignaturaContext.Solicitudes.Find(solicitud.CodigoSolicitud);
+                resul.Estado=solicitud.Estado;
+                _AsignaturaContext.Solicitudes.Update(resul);
+                _AsignaturaContext.SaveChanges();
+                if(resul.Estado.Equals("SI")){
+                    planAsignaturaService.EditarPlan(solicitud.PlanSolicitud);
+                }
+            } catch(Exception e){
+                actualizarSolicitudResponse.Error=true;
+                actualizarSolicitudResponse.Mensaje=$"Hubo un error al momento de editar a la solicitud, {e.Message}";
+            }
+            return actualizarSolicitudResponse;
         }
 
         public ConsultarSolicitudesResponse ConsultarSolicitudes()
@@ -56,6 +77,23 @@ namespace BLL
             return consultarSolicitudesResponse;
         }
 
+        public EliminarSolicitudResponse EliminarSolicitud(string codigo){
+            EliminarSolicitudResponse eliminarSolicitudResponse = new EliminarSolicitudResponse();
+            try{
+                eliminarSolicitudResponse.Error=false;
+                eliminarSolicitudResponse.Mensaje="Docente eliminado correctamente";
+                var resul= ConsultarSolicitudes();
+                Solicitud a=resul.Solicitudes.Where(p=>p.PlanSolicitud.Asignatura.Codigo.Equals(codigo)).FirstOrDefault();
+                _AsignaturaContext.Remove(a);
+                _AsignaturaContext.SaveChanges();
+            }catch(Exception e){
+                eliminarSolicitudResponse.Error=true;
+                eliminarSolicitudResponse.Mensaje=$"Hubo un error al momento de eliminar a la solicitud, {e.Message}";
+            }
+
+            return eliminarSolicitudResponse;
+        }
+
 
 
 
@@ -64,6 +102,17 @@ namespace BLL
             public bool Error { get; set; }
             public String Mensaje { get; set; }
             public List<Solicitud> Solicitudes{get;set;}
+        }
+
+        public class ActualizarSolicitudResponse{
+            public bool Error { get; set; }
+            public String Mensaje { get; set; }
+        }
+
+        public class EliminarSolicitudResponse
+        {
+            public bool Error { get; set; }
+            public String Mensaje { get; set; }
         }
         public class HacerSolicitudResponse{
              public HacerSolicitudResponse(Solicitud solicitud)

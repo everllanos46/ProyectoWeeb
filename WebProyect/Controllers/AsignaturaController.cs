@@ -64,6 +64,19 @@ namespace WebProyect.Controllers
             return Ok(Response);
         }
 
+        [HttpDelete("{codigo}")]
+        public ActionResult<AsignaturaViewModel> BorrarAsignatura(string codigo){
+             var Response = _AsignaturaService.EliminarAsignatura(codigo);
+            if(Response.Error){
+                ModelState.AddModelError("Error al elminar a la asignatura", Response.Mensaje);
+                var detalleProblemas = new ValidationProblemDetails(ModelState);
+                detalleProblemas.Status=StatusCodes.Status500InternalServerError;
+
+                return BadRequest(detalleProblemas);
+            }
+            return Ok(Response);
+        }
+
         private Asignatura Mapear(AsignaturaInputModel asignaturaInputModel)
         {
             var asignatura = new Asignatura

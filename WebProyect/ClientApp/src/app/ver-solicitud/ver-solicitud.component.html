@@ -1,1 +1,54 @@
-<p>ver-solicitud works!</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card" style="margin-left: 20%;">
+        <div class="card-header">
+          <h5 class="title">Asignatura</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-12 pl-1" style="margin-left: 10px;">
+                <div class="form-group">
+                  <label for="codigoSolicitud">Código</label>
+                  <input name="codigoSolicitud" id="codigoSolicitud" type="text" class="form-control" [(ngModel)]="solicitud.codigoSolicitud">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 pr-1">
+                <div class="form-group">
+                  <label for="nombreAsignatura">Asignatura Plan</label>
+                  <input name="nombreAsignatura" id="nombreAsignatura" type="text" class="form-control"  [(ngModel)]="solicitud.planSolicitud.asignatura.nombreAsignatura" >
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="solicitante">Solicitante</label>
+                  <input  name="solicitante" id="solicitante" type="text" class="form-control" [(ngModel)]="solicitud.solicitante" >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 pr-1">
+                <div class="form-group">
+                    <label for="" >Estado Solicitud</label>
+                    <select class="form-control" [(ngModel)]="solicitud.estado" name="estado" id="estado">
+                      <option value="SI">Aceptar</option>
+                      <option value="NO">No Aceptar</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+            
+            <div style="text-align: center;">
+              <button type="button" class="btn btn-danger" (click)="modify()">Revisar</button>
+            </div>
+          </form>
+        </div>
+      </div>

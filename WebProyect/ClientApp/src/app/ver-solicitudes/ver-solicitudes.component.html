@@ -24,7 +24,7 @@
               <tbody>
                 <tr *ngFor="let solicitud of solicitudes; index as i ">
                   <td> 
-                    <a >{{solicitud.codigoSolicitud}}</a>
+                    <a routerLink='/verSolicitud/{{solicitud.codigoSolicitud}}'>{{solicitud.codigoSolicitud}}</a>
                   </td>
                   <td>{{solicitud.planSolicitud.asignatura.nombreAsignatura}}</td>
                   <td>{{solicitud.solicitante }}</td>

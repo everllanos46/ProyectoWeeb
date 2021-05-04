@@ -20,7 +20,7 @@ import {VerAsignaturasComponent} from '../../ver-asignaturas/ver-asignaturas.com
 import {SolicitudComponent} from '../../solicitud/solicitud.component';
 import {RegistrarDocenteComponent} from '../../registrar-docente/registrar-docente.component';
 import {RegistroAsignaturaComponent} from '../../registro-asignatura/registro-asignatura.component';
-
+import {FiltroSolicitudPipe} from '../../pipe/filtro-solicitud.pipe';
 @NgModule({
   imports: [
     CommonModule,
