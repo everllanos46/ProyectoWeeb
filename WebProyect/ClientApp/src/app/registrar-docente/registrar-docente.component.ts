@@ -25,13 +25,9 @@ export class RegistrarDocenteComponent implements OnInit {
     return this.formDocente.controls;
   }
 
-
-    
-    
     
 
   guardar(){
-    this.docente=this.formDocente.value;
     this.service.post(this.docente).subscribe(resultado=>{
       if(resultado!=null){
         this.docente=resultado;

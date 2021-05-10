@@ -1,0 +1,15 @@
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\bin\Release\net5.0\DAL.deps.json
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\bin\Release\net5.0\DAL.dll
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\bin\Release\net5.0\ref\DAL.dll
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\bin\Release\net5.0\DAL.pdb
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\bin\Release\net5.0\Entity.dll
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\bin\Release\net5.0\Entity.pdb
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\DAL.csprojAssemblyReference.cache
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\DAL.AssemblyInfoInputs.cache
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\DAL.AssemblyInfo.cs
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\DAL.csproj.CopyComplete
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\DAL.dll
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\ref\DAL.dll
+C:\Users\EVERTH LLANOS\Desktop\Programación\pweb\WebProyecto-master\DAL\obj\Release\net5.0\DAL.pdb

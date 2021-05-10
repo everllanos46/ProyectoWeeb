@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AsignaturaContext))]
-    [Migration("20210430022445_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20210506015327_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,14 +138,14 @@ namespace DAL.Migrations
                     b.Property<string>("CodigoPlan")
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("AsignaturaCodigo")
-                        .HasColumnType("varchar(10)");
-
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Estrategias")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdAsignatura")
+                        .HasColumnType("varchar(10)");
 
                     b.Property<string>("ObjetivoGeneral")
                         .HasColumnType("nvarchar(max)");
@@ -155,7 +155,7 @@ namespace DAL.Migrations
 
                     b.HasKey("CodigoPlan");
 
-                    b.HasIndex("AsignaturaCodigo");
+                    b.HasIndex("IdAsignatura");
 
                     b.ToTable("PlanSolicitud");
                 });
@@ -192,11 +192,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entity.PlanSolicitud", b =>
                 {
-                    b.HasOne("Entity.Asignatura", "Asignatura")
+                    b.HasOne("Entity.Asignatura", null)
                         .WithMany()
-                        .HasForeignKey("AsignaturaCodigo");
-
-                    b.Navigation("Asignatura");
+                        .HasForeignKey("IdAsignatura");
                 });
 
             modelBuilder.Entity("Entity.Solicitud", b =>

@@ -14,6 +14,7 @@ namespace WebProyect.Controllers
     [ApiController]
     public class DocenteController : ControllerBase
     {
+        
         private DocenteService _service;
 
         public DocenteController(AsignaturaContext asignaturaContext)

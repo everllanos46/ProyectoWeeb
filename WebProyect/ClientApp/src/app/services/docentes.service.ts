@@ -15,14 +15,17 @@ const ruta = environment.ruta;
 export class DocentesService {
   
 
-
+  baseUrl: string;
   constructor(
     private http: HttpClient,
     private handleErrorService: HandleHttpErrorService
-  ) {  }
+  ) { 
+   
+   }
 
   post(docente : Docente) : Observable<Docente> {
-    return this.http.post<Docente>(ruta+"api/Docente",docente).pipe(tap(
+    console.log(this.baseUrl)
+    return this.http.post<Docente>("https://localhost:5001/"+"api/Docente" ,docente).pipe(tap(
       _=>this.handleErrorService.log("Datos Registrados")
     ), catchError(this.handleErrorService.handleError<Docente>("Docente Registrado",null)) )
   }

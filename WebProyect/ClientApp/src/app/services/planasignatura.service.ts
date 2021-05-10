@@ -30,7 +30,8 @@ export class PlanasignaturaService {
     }
 
     searchAsignatura(codigo: String): Observable<PlanAsignatura>{
-      return this.http.get<PlanAsignatura>(ruta+"api/Asignatura/"+codigo).pipe(
+      debugger
+      return this.http.get<PlanAsignatura>("https://localhost:5001/"+"api/Asignatura/"+codigo).pipe(
         tap(()=>console.log("Buscado correctamente"))
       )
     }
